@@ -1,7 +1,19 @@
 <template>
-  <div class="flex flex-col gap-5 tracking-widest">
-    <h2>{{ person.name }}</h2>
-    <h3>{{ left }} kr.</h3>
+  <div class="flex-1 flex flex-col justify-around p-6">
+    <div class="flex flex-col gap-4">
+      <div class="grid justify-center">
+        <div
+          class="w-40 h-40 sm:w-96 sm:h-96 bg-white/10 rounded-full border-4 border-white/87"
+        >
+          <img
+            :src="person.image"
+            class="w-full h-full rounded-full"
+          />
+        </div>
+      </div>
+      <h2>{{ person.name }}</h2>
+      <h3>{{ left }} kr.</h3>
+    </div>
   </div>
 </template>
 
