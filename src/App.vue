@@ -1,30 +1,24 @@
 <template>
   <div class="text-center">
-    <!-- <div
-      class="absolute top-0 left-0 right-0 h-20 bg-white text-gray-900 grid place-items-center"
-    >
-      <h1>{{ today }}</h1>
-    </div> -->
-    <div
-      class="absolute top-0 left-0 right-0 bottom-0 flex flex-col sm:flex-row"
-    >
-      <persons-list :persons="persons" />
-    </div>
+    <person-details
+      v-if="showDetails"
+      :activePerson="persons[0]"
+    />
+    <persons-list
+      v-else
+      :persons="persons"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+import PersonDetails from "./components/person-details/PersonDetails.vue";
 import PersonsList from "./components/persons-list/PersonsList.vue";
 
 const startDate = new Date("2023-08-05 00:00:00");
-//const date = new Date();
 
-/*const today = date.toLocaleDateString("en", {
-  weekday: "long",
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});*/
+const showDetails = ref(true);
 
 const persons = [
   {
@@ -34,7 +28,8 @@ const persons = [
     allowance: 40,
     frequency: "weekly",
     spent: 40,
-    image: "./jamie.jpg",
+    image: "../jamie.jpg",
+    details: false,
   },
   {
     name: "Kira",
@@ -44,6 +39,7 @@ const persons = [
     frequency: "weekly",
     spent: 0,
     image: "./kira.jpg",
+    details: false,
   },
 ];
 </script>
