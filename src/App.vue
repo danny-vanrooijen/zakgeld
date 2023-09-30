@@ -36,7 +36,7 @@ const persons = [
     startDate: startDate,
     allowance: 40,
     frequency: "weekly",
-    spent: 40,
+    spent: 359,
     image: "../jamie.jpg",
   },
   {
@@ -44,7 +44,7 @@ const persons = [
     startDate: startDate,
     allowance: 40,
     frequency: "weekly",
-    spent: 0,
+    spent: 359,
     image: "../kira.jpg",
   },
 ];
