@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="flex-1 flex flex-col justify-around p-6"
-    @click="showAllowance"
-  >
+  <div class="flex-1 flex flex-col justify-around p-6">
     <div class="flex flex-col gap-4">
       <div class="grid justify-center">
         <div
@@ -46,8 +43,4 @@ const spent = props.person.spent;
 
 // Get the amount the person has left
 const left = total - spent;
-
-const showAllowance = () => {
-  console.log(props);
-};
 </script>

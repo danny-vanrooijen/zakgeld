@@ -2,7 +2,7 @@
   <div class="text-center">
     <person-details
       v-if="showDetails"
-      :activePerson="persons[0]"
+      :activePerson="activePerson"
     />
     <persons-list
       v-else
@@ -12,34 +12,40 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+// Import libraries
+import { computed } from "vue";
+import { useGlobalStore } from "@/stores/GlobalStore.js";
+
+// Import vue components
 import PersonDetails from "./components/person-details/PersonDetails.vue";
 import PersonsList from "./components/persons-list/PersonsList.vue";
 
-const startDate = new Date("2023-08-05 00:00:00");
+// Import types
 
-const showDetails = ref(true);
+// Import utils, stores and models
+const globalStore = useGlobalStore();
+
+const showDetails = computed(() => globalStore.showDetails);
+const activePerson = computed(() => globalStore.activePerson);
+
+const startDate = new Date("2023-08-05 00:00:00");
 
 const persons = [
   {
     name: "Jamie",
     startDate: startDate,
-    amount: 45,
     allowance: 40,
     frequency: "weekly",
     spent: 40,
     image: "../jamie.jpg",
-    details: false,
   },
   {
     name: "Kira",
     startDate: startDate,
-    amount: 95,
     allowance: 40,
     frequency: "weekly",
     spent: 0,
-    image: "./kira.jpg",
-    details: false,
+    image: "../kira.jpg",
   },
 ];
 </script>

@@ -1,10 +1,13 @@
 <template>
   <div class="container">
     <div>
-      <div class="absolute top-5 left-5 text-xl font-bold">
+      <div
+        class="absolute top-5 left-5 text-xl font-bold"
+        @click="closeDetails"
+      >
         &ShortLeftArrow;
       </div>
-      <h1>Jamie</h1>
+      <h1>{{ name }}</h1>
       <div>40 kr.</div>
     </div>
     <div class="py-10 flex gap-5 justify-center">
@@ -25,7 +28,7 @@
       <ul>
         <template v-for="index in 10">
           <li class="flex justify-between">
-            <span>21 januari 2023</span>
+            <span>{{ index }}. 21 januari 2023</span>
             <span>25 kr.</span>
           </li>
         </template>
@@ -34,4 +37,17 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed } from "vue";
+import { useGlobalStore } from "@/stores/GlobalStore.js";
+
+const globalStore = useGlobalStore();
+
+const activePerson = globalStore.activePerson;
+
+const name = computed(() => activePerson.name);
+
+const closeDetails = () => {
+  globalStore.showDetails = false;
+};
+</script>

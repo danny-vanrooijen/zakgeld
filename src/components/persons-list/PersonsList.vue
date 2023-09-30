@@ -4,12 +4,22 @@
       v-for="person in persons"
       :key="person.name"
       :person="person"
+      @click="setPersonAsActive(person)"
     />
   </div>
 </template>
 
 <script setup lang="ts">
+import { useGlobalStore } from "@/stores/GlobalStore.js";
+
 import Person from "./components/Person.vue";
 
+const globalStore = useGlobalStore();
+
 defineProps(["persons"]);
+
+const setPersonAsActive = (person) => {
+  globalStore.activePerson = person;
+  globalStore.showDetails = !globalStore.showDetails;
+};
 </script>
