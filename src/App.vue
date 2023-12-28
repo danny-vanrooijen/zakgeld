@@ -21,7 +21,7 @@ const persons = [
     startDate: startDate,
     allowance: 40,
     frequency: "weekly",
-    spent: 359,
+    spent: 800,
     image: "./jamie.jpg",
   },
   {
