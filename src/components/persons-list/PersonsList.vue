@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { useGlobalStore } from "@/stores/GlobalStore.js";
+import { useGlobalStore } from "@/stores/GlobalStore.ts";
 
 import Person from "./components/Person.vue";
 

@@ -39,7 +39,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { useGlobalStore } from "@/stores/GlobalStore.js";
+import { useGlobalStore } from "@/stores/GlobalStore.ts";
 
 const globalStore = useGlobalStore();
 

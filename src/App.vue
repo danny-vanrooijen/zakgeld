@@ -14,7 +14,7 @@
 <script setup lang="ts">
 // Import libraries
 import { computed } from "vue";
-import { useGlobalStore } from "@/stores/GlobalStore.js";
+import { useGlobalStore } from "@/stores/GlobalStore.ts";
 
 // Import vue components
 import PersonDetails from "./components/person-details/PersonDetails.vue";
